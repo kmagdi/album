@@ -84,18 +84,17 @@ const preloadImages=()=>{
   return(
       <div className="container  border shadow p-2">
       
-            <div className="row justify-content-center pt-2 ">
-                <div className="col-2 text-right" >
-                <h5 id="visits">Select game size: </h5>
+            <div className="row justify-content-center  ">
+             
+               <div className="form-group form-inline">
+                 <label >Game size : </label>
+                    <select  className="form-control text-center" value={gameSize} onChange={e=>setGameSize(e.target.value)}>
+                     {cardNumber.map(nr => <option  value={nr}>{nr}x{nr}</option>)}        
+                    </select>
                 </div>
-                <div className="col-3 text-left pb-2">
-                <select className="custom-select text-center" value={gameSize} onChange={e=>setGameSize(e.target.value)}>
-                   {cardNumber.map(nr => <option  value={nr}>{nr}x{nr}</option>)}        
-                </select>
-                </div>
-                <div className="text-right text-warning"> A rossz tippek szama:<b>{clickCounter}</b></div>
+                
             </div>
-            
+            <div className="text-right pr-3"> Bad:{clickCounter}</div>
 
                 <Board
                     cards={cards}

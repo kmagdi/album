@@ -2,8 +2,11 @@
 export default function init(nr){
     let id=0
     const cards=[]
-    for(let i=0;i<nr*nr/2;i++)
-        cards.push(`https://picsum.photos/200?random=${i}`)
+    for(let i=0;i<nr*nr/2;i++){
+        let j=Math.floor(Math.random() * 60)+1; 
+        cards.push(`https://raw.githubusercontent.com/kmagdi/pers/main/${j}.jpg`) 
+        //cards.push(`https://picsum.photos/200?random=${i}`)
+    }
     const cardsDupla=cards.reduce((acc,type)=>{
         acc.push({id:id++,type})
         acc.push({id:id++,type})
